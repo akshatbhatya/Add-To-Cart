@@ -1,0 +1,156 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+a {
+  list-style: none;
+  text-decoration: none;
+}
+body{
+    background-image: linear-gradient(
+    to right,
+    #c2185ba8,
+    rgb(255 0 0 / 60%),
+    #c2185ba8
+  );
+  backdrop-filter: blur(7px);
+ 
+}
+nav {
+  /* background-image: linear-gradient(
+    to right,
+    #c2185ba8,
+    rgb(255 0 0 / 60%),
+    #c2185ba8
+  );
+  backdrop-filter: blur(7px);
+  box-shadow: 0px 0px 2px #000000c4; */
+
+  background: #65656596;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  padding: 0px 30px;
+  align-items: center;
+  height: 60px;
+}
+.logotitle {
+  color: white;
+  font-family: cursive;
+  font-weight: 800;
+  display: flex;
+  gap: 20px;
+}
+.imageslider {
+  position: relative;
+  overflow: hidden;
+  height: 500px;
+}
+.sliderimg {
+  width: 100%;
+  height: 450px;
+  position: absolute;
+  transition: ease-in-out 1.5s;
+}
+
+.sectionheading{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.title{
+    text-align: center;
+    font-family: cursive;
+    color: white;
+}
+.ruler{
+    margin-top: 10px;
+    border: 4px solid red;
+    border-radius: 5px;
+    width: 150px;
+
+}
+.categorybtn{
+    margin: 20px 0px;
+    text-align: center;
+}
+
+button{
+    
+    background: #ffffff6e;
+    padding: 5px 20px;
+    border: none;
+    border-radius: 2px;
+    cursor: pointer;
+    box-shadow: 0px 0px 2px #00000038;
+    font-size: 16px;
+    color: white;
+}
+
+.sectionofcard{
+    width: 1200px;
+    margin: 20px auto;
+    display: flex;
+    flex-wrap: wrap;
+    transition:ease-in-out 1.5s;
+}
+
+.card{
+    width: 280px;
+    background: #bdbdbd3d;
+    margin: 10px 10px;
+    backdrop-filter: blur(10px);
+    box-shadow: 0px 0px 2px #ffffffe0;
+    border: none;
+    border-radius: 5px;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    
+}
+.cardspecs{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 80px;
+}
+.productimg{
+    border: 2px solid black;
+    border-radius: 200px;
+    width: 150px;
+    border-width: 0px 2px 05px 2px ;
+}
+
+.img{
+    border: 2px solid #ff3737;
+    border-radius: 200px;
+    border-width: 05px 2px 0px 2px
+
+}
+.icon{
+  font-size: 18px;
+  color: white;
+  cursor: pointer;
+}
+
+.cartbasket{
+  position: relative;
+}
+.innercount{
+  position: absolute;
+    right: -3px;
+    top: -9px;
+    background: red;
+    color: white;
+    padding: 2px 3px;
+    border: none;
+    border-radius: 3px;
+    font-size: 16px;
+    font-weight: 500;
+    cursor: pointer;
+}
