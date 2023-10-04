@@ -188,15 +188,27 @@ let generatecarditems=()=>{
             let checkBasket=product.find(x=>(x.id==id));
             let {category,desc,name,img,price}=checkBasket
             return `<div class="cardofcart">
-            <div class="imgofproduct">
-                <img src="/Add-To-Cart/images/car.jpg" alt="" srcset="">
-            </div>
-            
-            <div class="contentdisc">
-                <h3>${name}</h3>
-                <price>${price}</price>
-            </div>
-            </div>`
+                <div class="imgofproduct">
+                    <img src="/Add-To-Cart/images/car.jpg" class="imagesize" alt="" srcset="">
+                </div>
+                <div class="details">
+                    <div class="title-price-x">
+                        <h4 class="title-price">
+                        <p>${name}</p>
+                        <p class="priceofproduct">&#8377 ${price}</p>
+                        </h4>
+                        <i class="bi bi-x-lg cross"></i>
+                    </div>
+                    <div class="cart-buttons">
+                        <div class="productselectionbtn" style="display:flex;gap:8px">
+                            <span onclick="incriment(${id})"><i class="bi bi-patch-plus icon"></i></span>
+                            <span id=${id}>${item}</span>
+                            <span onclick="decrement(${id})" ><i class="bi bi-patch-minus icon" class="icon"></i></span>
+                        </div>
+                    
+                    </div>
+                </div>
+        </div>`
         }).join(' ');
         shopingcart.innerHTML=data;
         label.innerHTML=`card is not empty`
@@ -214,3 +226,46 @@ let generatecarditems=()=>{
     }
 }
 generatecarditems();
+
+
+function incriment(id) {
+    let search = basket.find(x => x.id === id)
+    if (search == undefined) {
+        basket.push({
+            id: id,
+            item: 1
+        })
+    }
+    else {
+        search.item += 1;
+    }
+    localStorage.setItem("data",JSON.stringify(basket));
+    update(id)
+}
+
+
+function decrement(id) {
+    let search = basket.find(x => x.id === id)
+    if (search == undefined) return
+    else {
+        if (search.item === 0) return
+        search.item -= 1;
+    }
+    update(id)
+    basket=basket.filter((x)=>x.item!==0);
+    localStorage.setItem("data",JSON.stringify(basket));
+    calclation();
+}
+
+
+function update(id) {
+    let search = basket.find(x => x.id === id);
+    let data = search.item;
+
+    let innerdata = document.getElementById(id);
+
+    innerdata.innerHTML = data;
+    calclation();
+
+
+}
