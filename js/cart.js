@@ -212,7 +212,6 @@ let generatecarditems = () => {
         </div>`
         }).join(' ');
         shopingcart.innerHTML = data;
-        label.innerHTML = `card is not empty`
     }
     else {
         shopingcart.innerHTML = " "
@@ -227,6 +226,7 @@ let generatecarditems = () => {
     }
 }
 generatecarditems();
+
 
 
 function incriment(id) {
@@ -270,8 +270,7 @@ function update(id) {
 
     innerdata.innerHTML = data;
     calclation();
-
-
+    totalAmount();
 }
 
 let removeItem = (id) => {
@@ -281,6 +280,38 @@ let removeItem = (id) => {
     basket = basket.filter((x) => x.item !== 0);
     localStorage.setItem("data", JSON.stringify(basket));
     generatecarditems();
+    totalAmount();
     console.log(newresponse.id);
     calclation();
+}
+
+let totalAmount=()=>{
+    if(basket !==0){
+        let totalProductPrice= basket.map((x)=>{
+            let {id,item}=x;
+            let search=product.find(x=>x.id==id);
+            let {price,name}=search;
+            return item * price;
+
+        }).reduce((x,y)=>x+y,0);
+        console.log(totalProductPrice);
+        label.innerHTML=`<h2>Total Amount Is :&#8377 ${totalProductPrice}</h2>
+        <div class=btns>
+        <a href="index.html">
+        <button  class="checkout" >Checkout</button>
+        </a>
+           <button onclick="clearbasket()" class="clearcart">Clear Cart</button>
+        </div>
+        `;
+        generatecarditems();
+    }
+    else return
+}
+totalAmount();
+
+let clearbasket=()=>{
+    basket=[];
+    generatecarditems();
+    calclation();
+    localStorage.setItem("data", JSON.stringify(basket));
 }

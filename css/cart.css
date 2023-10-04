@@ -56,3 +56,15 @@
 .cart-buttons{
     margin: 20px 0px 10px 0px;
 }
+.btns{
+    margin-top:20px;
+}
+.checkout{
+    background:green;
+    color: white;
+}
+
+.clearcart{
+    background:red;
+    color: white;
+}
