@@ -168,8 +168,8 @@ let product = [{
 
 // varibles 
 
-let label=document.querySelector('#label');
-let shopingcart=document.querySelector('#shoping-cart')
+let label = document.querySelector('#label');
+let shopingcart = document.querySelector('#shoping-cart')
 
 let basket = JSON.parse(localStorage.getItem("data")) || [];
 
@@ -180,13 +180,13 @@ function calclation() {
 }
 calclation()
 
-let generatecarditems=()=>{
-    if(basket.length !==0){
-        let data=basket.map((x)=>{
-            let {id,item}=x;
+let generatecarditems = () => {
+    if (basket.length !== 0) {
+        let data = basket.map((x) => {
+            let { id, item } = x;
 
-            let checkBasket=product.find(x=>(x.id==id));
-            let {category,desc,name,img,price}=checkBasket
+            let checkBasket = product.find(x => (x.id == id));
+            let { category, desc, name, img, price } = checkBasket
             return `<div class="cardofcart">
                 <div class="imgofproduct">
                     <img src="/Add-To-Cart/images/car.jpg" class="imagesize" alt="" srcset="">
@@ -197,7 +197,7 @@ let generatecarditems=()=>{
                         <p>${name}</p>
                         <p class="priceofproduct">&#8377 ${price}</p>
                         </h4>
-                        <i class="bi bi-x-lg cross"></i>
+                        <i onclick="removeItem(${id})" class="bi bi-x-lg cross"></i>
                     </div>
                     <div class="cart-buttons">
                         <div class="productselectionbtn" style="display:flex;gap:8px">
@@ -207,15 +207,16 @@ let generatecarditems=()=>{
                         </div>
                     
                     </div>
+                    <h3>&#8377 ${price * item}</h3>
                 </div>
         </div>`
         }).join(' ');
-        shopingcart.innerHTML=data;
-        label.innerHTML=`card is not empty`
-          }
-    else{
-        shopingcart.innerHTML=" "
-        label.innerHTML=`
+        shopingcart.innerHTML = data;
+        label.innerHTML = `card is not empty`
+    }
+    else {
+        shopingcart.innerHTML = " "
+        label.innerHTML = `
         <h2 class="para">Card Is Empty</h2>
         <div class="buttonsofcart">
             <a href="index.html">
@@ -239,7 +240,8 @@ function incriment(id) {
     else {
         search.item += 1;
     }
-    localStorage.setItem("data",JSON.stringify(basket));
+    generatecarditems();
+    localStorage.setItem("data", JSON.stringify(basket));
     update(id)
 }
 
@@ -251,9 +253,11 @@ function decrement(id) {
         if (search.item === 0) return
         search.item -= 1;
     }
+
     update(id)
-    basket=basket.filter((x)=>x.item!==0);
-    localStorage.setItem("data",JSON.stringify(basket));
+    basket = basket.filter((x) => x.item !== 0);
+    localStorage.setItem("data", JSON.stringify(basket));
+    generatecarditems();
     calclation();
 }
 
@@ -268,4 +272,15 @@ function update(id) {
     calclation();
 
 
+}
+
+let removeItem = (id) => {
+    console.log('cross is pressed', id);
+    let newresponse = basket.find((x) => x.id === id)
+    newresponse.item = 0;
+    basket = basket.filter((x) => x.item !== 0);
+    localStorage.setItem("data", JSON.stringify(basket));
+    generatecarditems();
+    console.log(newresponse.id);
+    calclation();
 }
