@@ -1,0 +1,21 @@
+.text-center{
+    text-align: center;
+    margin-top: 30px;
+}
+.para{
+    margin: 20px 0px;
+    font-size: 20px;
+    color: white;
+}
+.shoping-cart{
+    margin: 10px auto;
+    width: 1200px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+
+}
+.cardofcart{
+    display: flex;
+    gap: 10px;
+}
