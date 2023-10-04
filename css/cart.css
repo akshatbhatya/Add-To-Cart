@@ -1,70 +1,70 @@
-.text-center{
-    text-align: center;
-    margin-top: 30px;
+.text-center {
+  text-align: center;
+  margin-top: 30px;
 }
-.para{
-    margin: 20px 0px;
-    font-size: 20px;
-    color: white;
+.para {
+  margin: 20px 0px;
+  font-size: 20px;
+  color: white;
 }
-.shoping-cart{
-    margin-top: 10px;
-    display: grid;
-    grid-template-columns: repeat(1,320px);
-    justify-content: center;
-    gap: 20px;
-
+.shoping-cart {
+  margin-top: 10px;
+  display: grid;
+  grid-template-columns: repeat(1, 320px);
+  justify-content: center;
+  gap: 20px;
 }
-.cardofcart{
-    display: flex;
-    gap: 10px;
-    border: 2px solid black;
-    margin: 20px 0px;
-    border-radius: 5px;
+.cardofcart {
+  display: flex;
+  gap: 10px;
+  border: 2px solid black;
+  margin: 20px 0px;
+  border-radius: 5px;
 }
-.cross{
-    color: red;
-    font-weight: 700;
-    font-size: larger;
-    cursor: pointer;
+.cross {
+  color: red;
+  font-weight: 700;
+  font-size: larger;
+  cursor: pointer;
 }
-.imagesize{
-    width: 150px;
-    height: 150px;
+.imagesize {
+  width: 150px;
+  height: 150px;
 }
-.title-price-x{
-    display: flex;
-    gap: 15px;
-    width: 150px;
-    justify-content: space-between;
-    align-items: center;
-}.title-price{
-    display: flex;
-    gap: 10px;
+.title-price-x {
+  display: flex;
+  gap: 15px;
+  width: 150px;
+  justify-content: space-between;
+  align-items: center;
 }
-.details{
-    padding-top: 10px;
+.title-price {
+  display: flex;
+  gap: 10px;
 }
-
-.priceofproduct{
-    background: #393939;
-    color: white;
-    border-radius: 4px;
-    padding: 2px;
+.details {
+  padding-top: 10px;
 }
 
-.cart-buttons{
-    margin: 20px 0px 10px 0px;
-}
-.btns{
-    margin-top:20px;
-}
-.checkout{
-    background:green;
-    color: white;
+.priceofproduct {
+  background: #393939;
+  color: white;
+  border-radius: 4px;
+  padding: 2px;
 }
 
-.clearcart{
-    background:red;
-    color: white;
+.cart-buttons {
+  margin: 20px 0px 10px 0px;
+}
+.btns {
+  margin-top: 20px;
+}
+.checkout {
+  background: green;
+  color: white;
+}
+
+.clearcart {
+  background: red;
+  color: white;
 }

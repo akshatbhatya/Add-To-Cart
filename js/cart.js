@@ -274,28 +274,25 @@ function update(id) {
 }
 
 let removeItem = (id) => {
-    console.log('cross is pressed', id);
     let newresponse = basket.find((x) => x.id === id)
     newresponse.item = 0;
     basket = basket.filter((x) => x.item !== 0);
     localStorage.setItem("data", JSON.stringify(basket));
     generatecarditems();
     totalAmount();
-    console.log(newresponse.id);
     calclation();
 }
 
-let totalAmount=()=>{
-    if(basket !==0){
-        let totalProductPrice= basket.map((x)=>{
-            let {id,item}=x;
-            let search=product.find(x=>x.id==id);
-            let {price,name}=search;
+let totalAmount = () => {
+    if (basket !== 0) {
+        let totalProductPrice = basket.map((x) => {
+            let { id, item } = x;
+            let search = product.find(x => x.id == id);
+            let { price, name } = search;
             return item * price;
 
-        }).reduce((x,y)=>x+y,0);
-        console.log(totalProductPrice);
-        label.innerHTML=`<h2>Total Amount Is :&#8377 ${totalProductPrice}</h2>
+        }).reduce((x, y) => x + y, 0);
+        label.innerHTML = `<h2>Total Amount Is :&#8377 ${totalProductPrice}</h2>
         <div class=btns>
         <a href="index.html">
         <button  class="checkout" >Checkout</button>
@@ -309,8 +306,8 @@ let totalAmount=()=>{
 }
 totalAmount();
 
-let clearbasket=()=>{
-    basket=[];
+let clearbasket = () => {
+    basket = [];
     generatecarditems();
     calclation();
     localStorage.setItem("data", JSON.stringify(basket));

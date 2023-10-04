@@ -216,9 +216,7 @@ window.addEventListener("DOMContentLoaded", (e) => {
 function ourproducts(items) {
     let ourdata = items.map(x => {
         let { id, desc, name, price } = x
-        console.log(basket);
-        let search=basket.find((x)=>x.id==id)
-        console.log(search);
+        let search = basket.find((x) => x.id == id)
         return `<div class="card" id=product-id-${id}>
         <div class="img">
             <img src="/Add-To-Cart/images/car.jpg" alt="" class="productimg">
@@ -230,7 +228,7 @@ function ourproducts(items) {
         <h5 style="font-weight:500;font-size:16px">&#8377 ${price}</h5>
         <div class="productselectionbtn" style="display:flex;gap:8px">
           <span onclick="incriment(${id})"><i class="bi bi-patch-plus icon"></i></span>
-          <span id=${id}>${search==undefined?0:search.item}</span>
+          <span id=${id}>${search == undefined ? 0 : search.item}</span>
           <span onclick="decrement(${id})" ><i class="bi bi-patch-minus icon" class="icon"></i></span>
         </div>
         </div>
@@ -290,7 +288,7 @@ function incriment(id) {
     else {
         search.item += 1;
     }
-    localStorage.setItem("data",JSON.stringify(basket));
+    localStorage.setItem("data", JSON.stringify(basket));
     update(id)
 }
 
@@ -303,8 +301,8 @@ function decrement(id) {
         search.item -= 1;
     }
     update(id)
-    basket=basket.filter((x)=>x.item!==0);
-    localStorage.setItem("data",JSON.stringify(basket));
+    basket = basket.filter((x) => x.item !== 0);
+    localStorage.setItem("data", JSON.stringify(basket));
     calclation();
 }
 
@@ -317,8 +315,6 @@ function update(id) {
 
     innerdata.innerHTML = data;
     calclation();
-
-
 }
 
 let productcalc = document.querySelector('#totalproduct');
