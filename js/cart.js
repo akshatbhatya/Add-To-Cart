@@ -188,7 +188,7 @@ let generatecarditems = () => {
             let { category, desc, name, img, price } = checkBasket
             return `<div class="cardofcart">
                 <div class="imgofproduct">
-                    <img src="/Add-To-Cart/images/car.jpg" class="imagesize" alt="" srcset="">
+                    <img src="${img}" class="imagesize" alt="" srcset="">
                 </div>
                 <div class="details">
                     <div class="title-price-x">
